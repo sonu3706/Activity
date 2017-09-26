@@ -1,0 +1,26 @@
+Steps to create Unit Test cases  with Spring MVC and Juint:-----
+
+1. @RunWith(SpringJUnit4ClassRunner.classes):-- This annotation is provided by JUnit team , which is a API to allow for the extension of JUnit  to allow for the 
+                                                customized test runner class.
+
+2. SpringJUnit4ClassRunner.class:--  This is the test runner class provided by the spring framework , it enable spring context and because of this our test class
+                                     becomes as a spring bean and it is managed by spring context.
+
+3. @ContextConfiguration:----This annotation provides configuration to use for Spring context
+
+Through the use of these two annotations, when I run the JUnit test, 
+the Spring Context will be started and the beans we’ve specified in the configuration will be available for use in our test.
+
+
+MockMVC:-
+
+MockMVC has been around since Spring version 3.2.
+This provides a very powerful way to mock Spring MVC for testing MVC  web application.
+Through MockMVC , you can send mock HTTP request to controller and test how the controller behaves without
+running the controller within a server.
+We can create instance of MockMVC through the following 2 methods of MockMVCBuilder
+                                                            
+  1. standaloneSetup():- Registers one or more @Controller instances and allows programmatically configuring the Spring MVC infrastructure to build a MockMvc instance. 
+						 This is similar to plain unit tests while also making it possible to focus tests around a single controller at a time
+  2.webAppContextSetup():- Uses the fully initialized (refreshed) WebApplicationContext to build a MockMvc instance.
+                           This lets Spring load your controllers as well as their dependencies for a full-blown integration test.
